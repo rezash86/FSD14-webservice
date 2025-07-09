@@ -69,7 +69,7 @@
       <module name="webservice" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jac.webservice.*" />
+          <option name="PATTERN" value="com.jac.webservice.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
