@@ -7,18 +7,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toCollection;
 
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController {
-    List<Employee> employeeList = List.of(
+    List<Employee> employeeList = Stream.of(
             new Employee("1", "A",
                     new Address("Montreal", "AAAAA")),
             new Employee("2", "B", new Address("Mon", "BBBBB")),
             Employee.builder().employeeId("3")
                     .name("C").address(Address.builder()
                             .city("Tor").postalCode("GGGGGG").build()).build()
-    );
+    ).collect(toCollection(ArrayList::new));
 
     @GetMapping("/")
     public List<Employee> getAll(){
@@ -40,4 +43,10 @@ public class EmployeeController {
     }
 
     //create a post for creating a new Employee
+    @PostMapping
+    public String createEmployee(@RequestBody Employee employee){
+        employee.setEmployeeId(String.valueOf(employeeList.size() + 1));
+        employeeList.add(employee);
+        return employee.getEmployeeId();
+    }
 }

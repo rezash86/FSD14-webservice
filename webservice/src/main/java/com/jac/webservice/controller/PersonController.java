@@ -50,4 +50,14 @@ public class PersonController {
         people.add(person);
         return person.getId();
     }
+
+    @PutMapping("/{id}")
+    public Person modifyPerson(@PathVariable int id, @RequestBody Person updatePerson){
+        Optional<Person> foundPerson = people.stream().filter(p -> p.getId() == id).findFirst();
+        if(foundPerson.isPresent()){
+            foundPerson.get().setName(updatePerson.getName());
+            return foundPerson.get();
+        }
+        return null;
+    }
 }
