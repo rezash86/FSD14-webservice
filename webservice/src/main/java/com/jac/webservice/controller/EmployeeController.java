@@ -2,10 +2,7 @@ package com.jac.webservice.controller;
 
 import com.jac.webservice.dto.Employee;
 import com.jac.webservice.dto.Address;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,4 +34,10 @@ public class EmployeeController {
 
     //let's make a route to filter the employees
     // that live in Montreal
+    @GetMapping("/filter")
+    public List<Employee> filterCity(@RequestParam String city){
+        return employeeList.stream().filter(emp -> emp.getAddress().getCity().equals(city)).toList();
+    }
+
+    //create a post for creating a new Employee
 }
