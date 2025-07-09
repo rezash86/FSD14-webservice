@@ -12,8 +12,11 @@ public class PersonController {
 
     List<Person> people = List.of
             (
-                    Person.builder().id(1).name("A").build(),
-                    Person.builder().id(2).name("B").build()
+                    Person.builder().id(1).name("AA").build(),
+                    Person.builder().id(2).name("BB").build(),
+                    Person.builder().id(3).name("CC").build(),
+                    Person.builder().id(4).name("BB").build(),
+                    Person.builder().id(5).name("AA").build()
             );
 
 
@@ -27,5 +30,12 @@ public class PersonController {
         Optional<Person> optionalPerson = people.stream()
                 .filter(person -> person.getId() == id).findFirst();
         return optionalPerson.orElse(null);
+    }
+
+
+    //Query parameter
+    @GetMapping("/filter")
+    public List<Person> filterName(@RequestParam String name){
+        return people.stream().filter(person -> person.getName().equals(name)).toList();
     }
 }
