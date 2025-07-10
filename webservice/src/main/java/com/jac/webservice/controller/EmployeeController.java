@@ -49,4 +49,25 @@ public class EmployeeController {
         employeeList.add(employee);
         return employee.getEmployeeId();
     }
+
+    @PutMapping("/{employeeId}")
+    public Employee modifyEmployee(@RequestBody Employee employee, @PathVariable String employeeId){
+        Optional<Employee> first = employeeList.stream().filter(emp -> emp.getEmployeeId().equals(employeeId)).findFirst();
+        if(first.isPresent()){
+            first.get().setName(employee.getName());
+            first.get().setAddress(employee.getAddress());
+            return first.get();
+        }
+        return null;
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean removeEmployee(@PathVariable String id){
+        Optional<Employee> first = employeeList.stream().filter(emp -> emp.getEmployeeId().equals(id)).findFirst();
+        if(first.isPresent()){
+            employeeList.remove(first.get());
+            return true;
+        }
+        return false;
+    }
 }

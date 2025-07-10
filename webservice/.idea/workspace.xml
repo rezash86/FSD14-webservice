@@ -57,7 +57,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.WebserviceApplication.executor": "Run",
+    "Application.Test (1).executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.WebserviceApplication.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
@@ -70,7 +72,33 @@
     "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.WebserviceApplication">
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.dependecyInjection.Test" />
+      <module name="webservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jac.webservice.dependecyInjection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.dependecyInjection.Test" />
+      <module name="webservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jac.webservice.dependecyInjection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jac.webservice.WebserviceApplication" />
       <module name="webservice" />
@@ -87,6 +115,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.WebserviceApplication" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -110,12 +140,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/controller/PersonController.java</url>
-          <line>40</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/service/PersonService.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
