@@ -1,6 +1,7 @@
 package com.jac.webservice.service;
 
 import com.jac.webservice.dto.Person;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,8 +14,11 @@ import static java.util.stream.Collectors.toCollection;
 @Component
 public class PersonService {
 
-    public List<Person> getAllPeople() {
-        return Stream.of(
+    private List<Person> people;
+
+    @PostConstruct
+    public void init(){
+        people = Stream.of(
                 Person.builder().id(1).name("AA").build(),
                 Person.builder().id(2).name("BB").build(),
                 Person.builder().id(3).name("CC").build(),
@@ -23,23 +27,25 @@ public class PersonService {
         ).collect(toCollection(ArrayList::new));
     }
 
+    public List<Person> getAllPeople() {
+        return people;
+    }
+
     public Person getPerson(int id){
         Optional<Person> optionalPerson = findById(id);;
         return optionalPerson.orElse(null);
     }
 
     private Optional<Person> findById(int id){
-        return getAllPeople().stream().filter(p -> p.getId() == id).findFirst();
+        return people.stream().filter(p -> p.getId() == id).findFirst();
 
     }
 
     public List<Person> getPersonByName(String name) {
-        return getAllPeople().stream().filter(p -> p.getName().equals(name)).toList();
+        return people.stream().filter(p -> p.getName().equals(name)).toList();
     }
 
     public int createPerson(Person person) {
-        var people = getAllPeople();
-
         person.setId(people.size() + 1);
         people.add(person);
         return person.getId();
@@ -57,7 +63,7 @@ public class PersonService {
     public boolean deletePerson(int id) {
         Optional<Person> foundPerson = findById(id);
         if(foundPerson.isPresent()){
-            getAllPeople().remove(foundPerson.get());
+            people.remove(foundPerson.get());
             return true;
         }
         return false;

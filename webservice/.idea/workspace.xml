@@ -59,7 +59,7 @@
   "keyToString": {
     "Application.Test (1).executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.WebserviceApplication.executor": "Debug",
+    "Application.WebserviceApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
@@ -141,7 +141,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/service/PersonService.java</url>
-          <line>57</line>
+          <line>62</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
