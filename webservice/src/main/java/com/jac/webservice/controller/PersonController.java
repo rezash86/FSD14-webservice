@@ -4,52 +4,49 @@ import com.jac.webservice.dto.Person;
 import com.jac.webservice.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/api/person")
 @RequiredArgsConstructor
 public class PersonController {
 
-    //I will have an association relationship with the personService
     private final PersonService service;
-//    @Autowired
-//    private PersonService service;
-//    @Autowired
-//    public PersonController(PersonService service) { //I want to do constructor injection
-//        this.service = service;
-//    }
-
 
     @GetMapping("/")
-    public List<Person> getAll() {
-        return service.getAllPeople();
+    public ResponseEntity<List<Person>> getAll() {
+        var result = service.getAllPeople();
+        return new ResponseEntity<>(result, OK);
     }
 
     @GetMapping("/{id}")
-    public Person getPerson(@PathVariable int id) {
-        return service.getPerson(id);
+    public ResponseEntity<Person> getPerson(@PathVariable int id) {
+        return new ResponseEntity<>(service.getPerson(id), OK);
     }
 
     @GetMapping("/filter")
-    public List<Person> filterName(@RequestParam String name){
-        return service.getPersonByName(name);
+    public ResponseEntity<List<Person>> filterName(@RequestParam String name){
+        var result = service.getPersonByName(name);
+        return new ResponseEntity<>(result, OK);
     }
 
     @PostMapping
-    public Integer createPerson(@RequestBody Person person){
-        return service.createPerson(person);
+    public ResponseEntity<Integer> createPerson(@RequestBody Person person){
+        return new ResponseEntity<>(service.createPerson(person), CREATED);
     }
 
     @PutMapping("/{id}")
-    public Person modifyPerson(@PathVariable int id, @RequestBody Person updatePerson){
-        return service.modifyPerson(id, updatePerson);
+    public ResponseEntity<Person> modifyPerson(@PathVariable int id, @RequestBody Person updatePerson){
+        return new ResponseEntity<>(service.modifyPerson(id, updatePerson), NO_CONTENT);
     }
 
     @DeleteMapping("/{id}")
-    public boolean remove(@PathVariable int id){
-        return service.deletePerson(id);
+    public ResponseEntity<Boolean> remove(@PathVariable int id){
+        return new ResponseEntity<>(service.deletePerson(id), NO_CONTENT);
     }
 }

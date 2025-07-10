@@ -12,10 +12,10 @@ public class WebserviceApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context =  SpringApplication.run(WebserviceApplication.class, args);
-		Car car = context.getBean(Car.class);
-		Engine engine = context.getBean(ElectricEngine.class);
-		car.setEngine(engine);
-		car.drive();
+//		Car car = context.getBean(Car.class);
+//		Engine engine = context.getBean(ElectricEngine.class);
+//		car.setEngine(engine);
+//		car.drive();
 	}
 
 

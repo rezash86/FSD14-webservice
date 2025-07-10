@@ -1,73 +1,64 @@
 package com.jac.webservice.controller;
 
 import com.jac.webservice.dto.Employee;
-import com.jac.webservice.dto.Address;
+import com.jac.webservice.service.EmployeeService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toCollection;
+
+
 
 @RestController
 @RequestMapping("/api/employee")
+@RequiredArgsConstructor
 public class EmployeeController {
-    List<Employee> employeeList = Stream.of(
-            new Employee("1", "A",
-                    new Address("Montreal", "AAAAA")),
-            new Employee("2", "B", new Address("Mon", "BBBBB")),
-            Employee.builder().employeeId("3")
-                    .name("C").address(Address.builder()
-                            .city("Tor").postalCode("GGGGGG").build()).build()
-    ).collect(toCollection(ArrayList::new));
+
+    private final EmployeeService service;
+
+//    @Autowired
+//    public EmployeeController(EmployeeService employeeService)
+//    {
+//        this.service = employeeService;
+//    }
+
 
     @GetMapping("/")
     public List<Employee> getAll(){
-        return employeeList;
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
     public Employee getById(@PathVariable String id){
-        //Alt + enter => gives you suggestions
-        Optional<Employee> first = employeeList.stream().filter(emp -> emp.getEmployeeId().equals(id)).findFirst();
-        return first.orElse(null);
+       return service.getById(id);
     }
 
     //let's make a route to filter the employees
     // that live in Montreal
     @GetMapping("/filter")
     public List<Employee> filterCity(@RequestParam String city){
-        return employeeList.stream().filter(emp -> emp.getAddress().getCity().equals(city)).toList();
+        return service.getByCity(city);
     }
 
     //create a post for creating a new Employee
     @PostMapping
     public String createEmployee(@RequestBody Employee employee){
-        employee.setEmployeeId(String.valueOf(employeeList.size() + 1));
-        employeeList.add(employee);
-        return employee.getEmployeeId();
+        return service.createEmployee(employee);
     }
 
     @PutMapping("/{employeeId}")
     public Employee modifyEmployee(@RequestBody Employee employee, @PathVariable String employeeId){
-        Optional<Employee> first = employeeList.stream().filter(emp -> emp.getEmployeeId().equals(employeeId)).findFirst();
-        if(first.isPresent()){
-            first.get().setName(employee.getName());
-            first.get().setAddress(employee.getAddress());
-            return first.get();
-        }
-        return null;
+        return service.modifyEmployee(employeeId, employee);
     }
 
     @DeleteMapping("/{id}")
     public boolean removeEmployee(@PathVariable String id){
-        Optional<Employee> first = employeeList.stream().filter(emp -> emp.getEmployeeId().equals(id)).findFirst();
-        if(first.isPresent()){
-            employeeList.remove(first.get());
-            return true;
-        }
-        return false;
+       return service.removeEmployee(id);
     }
 }
