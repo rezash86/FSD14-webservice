@@ -46,6 +46,9 @@ public class PersonService {
     }
 
     public int createPerson(Person person) {
+        if(person.getName().length() < 3){
+            throw new IllegalArgumentException();
+        }
         person.setId(people.size() + 1);
         people.add(person);
         return person.getId();

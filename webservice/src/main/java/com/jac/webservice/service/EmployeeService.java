@@ -2,6 +2,7 @@ package com.jac.webservice.service;
 
 import com.jac.webservice.dto.Address;
 import com.jac.webservice.dto.Employee;
+import com.jac.webservice.exception.EmployeeNotFoundException;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +38,11 @@ public class EmployeeService {
 
     public Employee getById(String employeeId){
         Optional<Employee> first = employeeList.stream().filter(emp -> emp.getEmployeeId().equals(employeeId)).findFirst();
-        return first.orElse(null);
-    }
+        if(first.isPresent()){
+            return first.get();
+        }
+        throw new EmployeeNotFoundException(String.format("No employee found with that employee Id -> " + employeeId));
+     }
 
     public List<Employee> getByCity(String cityName){
         return employeeList.stream().filter(emp -> emp.getAddress().getCity().equals(cityName)).toList();

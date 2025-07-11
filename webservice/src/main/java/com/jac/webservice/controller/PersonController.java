@@ -4,6 +4,7 @@ import com.jac.webservice.dto.Person;
 import com.jac.webservice.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,8 +37,14 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<Integer> createPerson(@RequestBody Person person){
-        return new ResponseEntity<>(service.createPerson(person), CREATED);
+    public ResponseEntity<?> createPerson(@RequestBody Person person){
+        try{
+            var result = service.createPerson(person);
+            return ResponseEntity.status(CREATED).body(result);
+        }
+        catch (IllegalArgumentException ex){
+            return ResponseEntity.status(BAD_REQUEST).body("The name length needs to be more than 3 characters");
+        }
     }
 
     @PutMapping("/{id}")
