@@ -60,6 +60,11 @@
     "Application.Test (1).executor": "Run",
     "Application.Test.executor": "Run",
     "Application.WebserviceApplication.executor": "Run",
+    "JUnit.PersonControllerTest.executor": "Run",
+    "JUnit.PersonControllerTest.test_filterName_givesFilteredName.executor": "Run",
+    "JUnit.PersonControllerTest.test_getAll_GivesAllEmployee.executor": "Debug",
+    "JUnit.PersonControllerTest.test_getOne_givesOnePerson.executor": "Run",
+    "JUnit.WebserviceApplicationTests.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
@@ -72,35 +77,13 @@
     "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.WebserviceApplication">
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.dependecyInjection.Test" />
-      <module name="webservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jac.webservice.dependecyInjection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.dependecyInjection.Test" />
-      <module name="webservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jac.webservice.dependecyInjection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WebserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.WebserviceApplication" />
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jac.webservice.adapter.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.PersonControllerTest.test_filterName_givesFilteredName">
+    <configuration name="PersonControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webservice" />
       <extension name="coverage">
         <pattern>
@@ -108,15 +91,83 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.jac.webservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.controller.PersonControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonControllerTest.test_filterName_givesFilteredName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jac.webservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jac.webservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.controller.PersonControllerTest" />
+      <option name="METHOD_NAME" value="test_filterName_givesFilteredName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonControllerTest.test_getAll_GivesAllEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jac.webservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jac.webservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.controller.PersonControllerTest" />
+      <option name="METHOD_NAME" value="test_getAll_GivesAllEmployee" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonControllerTest.test_getOne_givesOnePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jac.webservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jac.webservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.controller.PersonControllerTest" />
+      <option name="METHOD_NAME" value="test_getOne_givesOnePerson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebserviceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webservice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jac.webservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jac.webservice" />
+      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.WebserviceApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WebserviceApplication" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test (1)" />
+        <item itemvalue="JUnit.PersonControllerTest.test_filterName_givesFilteredName" />
+        <item itemvalue="JUnit.PersonControllerTest" />
+        <item itemvalue="JUnit.PersonControllerTest.test_getOne_givesOnePerson" />
+        <item itemvalue="JUnit.PersonControllerTest.test_getAll_GivesAllEmployee" />
+        <item itemvalue="JUnit.WebserviceApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -145,9 +196,39 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/controller/CatController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/adapter/CatsApi.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/adapter/CatsApi.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/adapter/CatsApi.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/adapter/DogAdapter.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jac/webservice/controller/PersonControllerTest.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/controller/PersonController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/service/PersonService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

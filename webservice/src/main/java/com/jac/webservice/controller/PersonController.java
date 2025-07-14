@@ -14,10 +14,14 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/api/person")
-@RequiredArgsConstructor
 public class PersonController {
 
     private final PersonService service;
+
+    @Autowired
+    public PersonController(PersonService personService){
+        this.service = personService;
+    }
 
     @GetMapping("/")
     public ResponseEntity<List<Person>> getAll() {
