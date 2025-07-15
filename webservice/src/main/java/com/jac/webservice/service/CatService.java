@@ -1,5 +1,6 @@
 package com.jac.webservice.service;
 
+import com.jac.webservice.mapper.CatMapper;
 import com.jac.webservice.adapter.CatsApi;
 import com.jac.webservice.adapter.model.CatApiDto;
 import com.jac.webservice.model.Cat;
@@ -14,6 +15,8 @@ public class CatService {
 
     private final CatsApi catsApi;
 
+    private final CatMapper catMapper;
+
     public List<String> getBreeds(){
         return catsApi.getAllBreeds();
     }
@@ -21,12 +24,8 @@ public class CatService {
     public List<Cat> getCatsByBreeds(String breeds) {
         List<CatApiDto> resultFromApi = catsApi.getCatsByBreeds(breeds);
 
-        return resultFromApi.stream().map(result -> Cat.builder()
-                .id(result.getId())
-                .url(result.getUrl())
-                .width(result.getWidth())
-                .height(result.getHeight())
-                .build()
+        return resultFromApi.stream()
+                .map(result -> catMapper.convert(result)
         ).toList();
     }
 }

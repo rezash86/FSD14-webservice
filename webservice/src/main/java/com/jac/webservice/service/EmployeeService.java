@@ -20,7 +20,7 @@ public class EmployeeService {
     private List<Employee> employeeList;
 
     @PostConstruct
-    void initEmployee(){
+    protected void initEmployee(){
         employeeList = Stream.of(
                 new Employee("1", "A",
                         new Address("Montreal", "AAAAA")),
