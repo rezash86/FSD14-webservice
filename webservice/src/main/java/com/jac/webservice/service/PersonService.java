@@ -1,7 +1,9 @@
 package com.jac.webservice.service;
 
 import com.jac.webservice.dto.Person;
+import com.jac.webservice.repository.PersonRepository;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,6 +18,13 @@ public class PersonService {
 
     private List<Person> people;
 
+    private final PersonRepository personRepository;
+
+    @Autowired
+    public PersonService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
+
     @PostConstruct
     public void init(){
         people = Stream.of(
@@ -28,7 +37,7 @@ public class PersonService {
     }
 
     public List<Person> getAllPeople() {
-        return people;
+        return personRepository.getAll();
     }
 
     public Person getPerson(int id){
