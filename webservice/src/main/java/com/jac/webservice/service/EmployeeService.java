@@ -1,9 +1,11 @@
 package com.jac.webservice.service;
 
 import com.jac.webservice.dto.Address;
-import com.jac.webservice.dto.Employee;
 import com.jac.webservice.exception.EmployeeNotFoundException;
+import com.jac.webservice.model.Employee;
+import com.jac.webservice.repository.employee.EmployeeRepository;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,21 +21,15 @@ public class EmployeeService {
 
     private List<Employee> employeeList;
 
-    @PostConstruct
-    protected void initEmployee(){
-        employeeList = Stream.of(
-                new Employee("1", "A",
-                        new Address("Montreal", "AAAAA")),
-                new Employee("2", "B", new Address("Mon", "BBBBB")),
-                Employee.builder().employeeId("3")
-                        .name("C").address(Address.builder()
-                                .city("Tor").postalCode("GGGGGG").build()).build()
-        ).collect(toCollection(ArrayList::new));
+    private final EmployeeRepository repository;
 
+    @Autowired
+    public EmployeeService(EmployeeRepository repository) {
+        this.repository = repository;
     }
 
     public List<Employee> getAll(){
-        return employeeList;
+        return repository.getAll();
     }
 
     public Employee getById(String employeeId){

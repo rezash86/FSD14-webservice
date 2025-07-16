@@ -1,16 +1,12 @@
 package com.jac.webservice.controller;
 
-import com.jac.webservice.dto.Employee;
+import com.jac.webservice.dto.Address;
+import com.jac.webservice.dto.EmployeeDto;
 import com.jac.webservice.exception.EmployeeNotFoundException;
+import com.jac.webservice.model.Employee;
 import com.jac.webservice.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,8 +29,20 @@ public class EmployeeController {
 
 
     @GetMapping("/")
-    public ResponseEntity<List<Employee>> getAll(){
-        return ResponseEntity.status(OK).body(service.getAll()) ;
+    public ResponseEntity<List<EmployeeDto>> getAll(){
+        //we have convesion of the domain objcect into the dto
+        //in the controller
+        var result = service.getAll();
+        //MapperTo convert from dao to domain
+        //mapper to convert from domain to dto
+        return ResponseEntity.status(OK).body(result.stream().map(emp->
+                EmployeeDto.builder()
+                        .employeeNumber(String.valueOf(emp.getEmployeeId()))
+                        .name(emp.getName())
+                        .address(Address.builder()
+                                .postalCode(emp.getAddress().getPostalCode())
+                                .city(emp.getAddress().getCity()).build())
+                        .build()).toList()) ;
     }
 
     @GetMapping("/{id}")
@@ -54,19 +62,50 @@ public class EmployeeController {
     //let's make a route to filter the employees
     // that live in Montreal
     @GetMapping("/filter")
-    public ResponseEntity<List<Employee>> filterCity(@RequestParam String city){
-        return ResponseEntity.status(OK).body(service.getByCity(city));
+    public ResponseEntity<List<EmployeeDto>> filterCity(@RequestParam String city){
+        var result = service.getByCity(city);
+        return ResponseEntity.status(OK).body(result.stream().map(emp->
+                EmployeeDto.builder()
+                        .employeeNumber(String.valueOf(emp.getEmployeeId()))
+                        .name(emp.getName())
+                        .address(Address.builder()
+                                .postalCode(emp.getAddress().getPostalCode())
+                                .city(emp.getAddress().getCity()).build())
+                        .build()).toList());
     }
 
     //create a post for creating a new Employee
     @PostMapping
-    public ResponseEntity<String> createEmployee(@RequestBody Employee employee){
-        return ResponseEntity.status(CREATED).body(service.createEmployee(employee));
+    public ResponseEntity<String> createEmployee(@RequestBody EmployeeDto employee){
+        var domainEmp = Employee.builder()
+                .employeeId(employee.getEmployeeNumber())
+                .name(employee.getName())
+                .address(Address.builder()
+                        .postalCode(employee.getAddress().getPostalCode())
+                        .city(employee.getAddress().getCity()).build())
+                .build();
+        return ResponseEntity.status(CREATED).body(service.createEmployee(domainEmp));
     }
 
     @PutMapping("/{employeeId}")
-    public ResponseEntity<Employee> modifyEmployee(@RequestBody Employee employee, @PathVariable String employeeId){
-        return ResponseEntity.status(NO_CONTENT).body(service.modifyEmployee(employeeId, employee));
+    public ResponseEntity<EmployeeDto> modifyEmployee(@RequestBody EmployeeDto employee, @PathVariable String employeeId){
+        var domainEmp = Employee.builder()
+                .employeeId(employee.getEmployeeNumber())
+                .name(employee.getName())
+                .address(Address.builder()
+                        .postalCode(employee.getAddress().getPostalCode())
+                        .city(employee.getAddress().getCity()).build())
+                .build();
+        var empResult = service.modifyEmployee(employeeId, domainEmp);
+        var dto = EmployeeDto.builder()
+                .employeeNumber(empResult.getEmployeeId())
+                .name(empResult.getName())
+                .address(Address.builder()
+                        .postalCode(empResult.getAddress().getPostalCode())
+                        .city(empResult.getAddress().getCity()).build())
+                .build();
+        return ResponseEntity.status(NO_CONTENT).
+                body(dto);
     }
 
     @DeleteMapping("/{id}")

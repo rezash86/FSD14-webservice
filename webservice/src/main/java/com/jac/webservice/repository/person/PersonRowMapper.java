@@ -1,4 +1,4 @@
-package com.jac.webservice.repository;
+package com.jac.webservice.repository.person;
 
 import com.jac.webservice.dto.Person;
 import org.springframework.jdbc.core.RowMapper;

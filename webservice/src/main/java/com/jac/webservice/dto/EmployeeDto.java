@@ -7,8 +7,9 @@ import lombok.*;
 @Setter
 @Builder
 @ToString
-public class Employee {
-    private String employeeId;
+//is for sending or/and receiving
+public class EmployeeDto {
+    private String employeeNumber;
     private String name;
     private Address address;
 }

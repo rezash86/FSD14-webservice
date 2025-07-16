@@ -1,7 +1,7 @@
 package com.jac.webservice.service;
 
 import com.jac.webservice.dto.Person;
-import com.jac.webservice.repository.PersonRepository;
+import com.jac.webservice.repository.person.PersonRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,15 +1,15 @@
 package com.jac.webservice.controller;
 
 import com.jac.webservice.dto.Address;
-import com.jac.webservice.dto.Employee;
+import com.jac.webservice.dto.EmployeeDto;
 import com.jac.webservice.exception.EmployeeNotFoundException;
+import com.jac.webservice.model.Employee;
 import com.jac.webservice.service.EmployeeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.stream.Stream;
