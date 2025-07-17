@@ -3,6 +3,7 @@ package com.jac.webservice.controller;
 import com.jac.webservice.dto.Address;
 import com.jac.webservice.dto.EmployeeDto;
 import com.jac.webservice.exception.EmployeeNotFoundException;
+import com.jac.webservice.mapper.EmployeeMapper;
 import com.jac.webservice.model.Employee;
 import com.jac.webservice.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -21,28 +22,15 @@ public class EmployeeController {
 
     private final EmployeeService service;
 
-//    @Autowired
-//    public EmployeeController(EmployeeService employeeService)
-//    {
-//        this.service = employeeService;
-//    }
-
+    private final EmployeeMapper mapper;
 
     @GetMapping("/")
     public ResponseEntity<List<EmployeeDto>> getAll(){
-        //we have convesion of the domain objcect into the dto
-        //in the controller
-        var result = service.getAll();
-        //MapperTo convert from dao to domain
-        //mapper to convert from domain to dto
-        return ResponseEntity.status(OK).body(result.stream().map(emp->
-                EmployeeDto.builder()
-                        .employeeNumber(String.valueOf(emp.getEmployeeId()))
-                        .name(emp.getName())
-                        .address(Address.builder()
-                                .postalCode(emp.getAddress().getPostalCode())
-                                .city(emp.getAddress().getCity()).build())
-                        .build()).toList()) ;
+        List<Employee> result = service.getAll();
+
+        return ResponseEntity
+                .status(OK)
+                .body(result.stream().map(mapper::convertEmployeeToEmployeeDto).toList()) ;
     }
 
     @GetMapping("/{id}")
@@ -65,45 +53,22 @@ public class EmployeeController {
     public ResponseEntity<List<EmployeeDto>> filterCity(@RequestParam String city){
         var result = service.getByCity(city);
         return ResponseEntity.status(OK).body(result.stream().map(emp->
-                EmployeeDto.builder()
-                        .employeeNumber(String.valueOf(emp.getEmployeeId()))
-                        .name(emp.getName())
-                        .address(Address.builder()
-                                .postalCode(emp.getAddress().getPostalCode())
-                                .city(emp.getAddress().getCity()).build())
-                        .build()).toList());
+                mapper.convertEmployeeToEmployeeDto(emp)).toList());
     }
 
     //create a post for creating a new Employee
     @PostMapping
-    public ResponseEntity<String> createEmployee(@RequestBody EmployeeDto employee){
-        var domainEmp = Employee.builder()
-                .employeeId(employee.getEmployeeNumber())
-                .name(employee.getName())
-                .address(Address.builder()
-                        .postalCode(employee.getAddress().getPostalCode())
-                        .city(employee.getAddress().getCity()).build())
-                .build();
+    public ResponseEntity<String> createEmployee(@RequestBody EmployeeDto employeeDto){
+        var domainEmp = covertEmployee(employeeDto);
         return ResponseEntity.status(CREATED).body(service.createEmployee(domainEmp));
     }
 
+
     @PutMapping("/{employeeId}")
     public ResponseEntity<EmployeeDto> modifyEmployee(@RequestBody EmployeeDto employee, @PathVariable String employeeId){
-        var domainEmp = Employee.builder()
-                .employeeId(employee.getEmployeeNumber())
-                .name(employee.getName())
-                .address(Address.builder()
-                        .postalCode(employee.getAddress().getPostalCode())
-                        .city(employee.getAddress().getCity()).build())
-                .build();
+        var domainEmp = covertEmployee(employee);
         var empResult = service.modifyEmployee(employeeId, domainEmp);
-        var dto = EmployeeDto.builder()
-                .employeeNumber(empResult.getEmployeeId())
-                .name(empResult.getName())
-                .address(Address.builder()
-                        .postalCode(empResult.getAddress().getPostalCode())
-                        .city(empResult.getAddress().getCity()).build())
-                .build();
+        var dto = mapper.convertEmployeeToEmployeeDto(empResult);
         return ResponseEntity.status(NO_CONTENT).
                 body(dto);
     }
@@ -112,5 +77,10 @@ public class EmployeeController {
     public ResponseEntity<Boolean> removeEmployee(@PathVariable String id){
         service.removeEmployee(id);
        return ResponseEntity.status(NO_CONTENT).body(true);
+    }
+
+
+    private Employee covertEmployee(EmployeeDto employeeDto) {
+        return mapper.convertEmployeeDtoToEmployee(employeeDto);
     }
 }

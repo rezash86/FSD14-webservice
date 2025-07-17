@@ -16,7 +16,6 @@ class EmployeeServiceTest {
 
     @Test
     void test_getById_exists(){
-        underTest.initEmployee();
         String testeeId = "1";
         var actual = underTest.getById(testeeId);
         assertNotNull(actual);
