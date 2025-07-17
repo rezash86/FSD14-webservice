@@ -1,6 +1,7 @@
 package com.jac.webservice.service;
 
 import com.jac.webservice.dto.Person;
+import com.jac.webservice.exception.PersonNotFoundException;
 import com.jac.webservice.repository.person.PersonRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +42,17 @@ public class PersonService {
     }
 
     public Person getPerson(int id){
-        Optional<Person> optionalPerson = findById(id);;
-        return optionalPerson.orElse(null);
+        return findById(id);
     }
 
-    private Optional<Person> findById(int id){
-        return people.stream().filter(p -> p.getId() == id).findFirst();
+    private Person findById(int id){
+        //we can provided some business rules
+        //if no person found provide proper error message
+        var fetchedPerson = personRepository.getOneById(id);
+        if (fetchedPerson == null) {
+            throw new PersonNotFoundException("The person not found with id : " + id);
+        }
+        return fetchedPerson;
 
     }
 
@@ -58,24 +64,22 @@ public class PersonService {
         if(person.getName().length() < 3){
             throw new IllegalArgumentException();
         }
-        person.setId(people.size() + 1);
-        people.add(person);
-        return person.getId();
+        return personRepository.createPerson(person);
     }
 
     public Person modifyPerson(int id, Person updatePerson) {
-        Optional<Person> foundPerson = findById(id);
-        if(foundPerson.isPresent()){
-            foundPerson.get().setName(updatePerson.getName());
-            return foundPerson.get();
+        Person foundPerson = findById(id);
+        if(foundPerson != null){
+            foundPerson.setName(updatePerson.getName());
+            return foundPerson;
         }
         return null;
     }
 
     public boolean deletePerson(int id) {
-        Optional<Person> foundPerson = findById(id);
-        if(foundPerson.isPresent()){
-            people.remove(foundPerson.get());
+        Person foundPerson = findById(id);
+        if(foundPerson != null){
+            people.remove(foundPerson);
             return true;
         }
         return false;

@@ -30,8 +30,13 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Person> getPerson(@PathVariable int id) {
-        return new ResponseEntity<>(service.getPerson(id), OK);
+    public ResponseEntity<?> getPerson(@PathVariable int id) {
+        try{
+            return new ResponseEntity<>(service.getPerson(id), OK);
+
+        }catch (Exception exc){
+            return ResponseEntity.status(INTERNAL_SERVER_ERROR).body("Call to admin " + exc.getMessage());
+        }
     }
 
     @GetMapping("/filter")
@@ -48,6 +53,10 @@ public class PersonController {
         }
         catch (IllegalArgumentException ex){
             return ResponseEntity.status(BAD_REQUEST).body("The name length needs to be more than 3 characters");
+        }
+        catch (Exception exc){
+            return ResponseEntity.status(INTERNAL_SERVER_ERROR).body("Call to admin " + exc.getMessage());
+
         }
     }
 
