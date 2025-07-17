@@ -28,6 +28,19 @@ public class EmployeeService {
         this.repository = repository;
     }
 
+    @PostConstruct
+    protected void initEmployee(){
+        employeeList = Stream.of(
+                new Employee("1", "A",
+                        new Address("Montreal", "AAAAA")),
+                new Employee("2", "B", new Address("Mon", "BBBBB")),
+                Employee.builder().employeeId("3")
+                        .name("C").address(Address.builder()
+                                .city("Tor").postalCode("GGGGGG").build()).build()
+        ).collect(toCollection(ArrayList::new));
+
+    }
+
     public List<Employee> getAll(){
         return repository.getAll();
     }

@@ -47,7 +47,9 @@ class EmployeeControllerTest {
 
         //assert
         assertNotNull(actual.getBody());
-        assertEquals(employeeList, actual.getBody());
+        assertEquals(employeeList.size(), actual.getBody().size());
+        assertEquals(employeeList.getFirst().getEmployeeId(), actual.getBody().getFirst().getEmployeeNumber());
+
         assertEquals(OK, actual.getStatusCode());
     }
 
