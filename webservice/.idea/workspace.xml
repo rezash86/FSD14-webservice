@@ -65,6 +65,7 @@
     "JUnit.EmployeeControllerTest.executor": "Coverage",
     "JUnit.EmployeeControllerTest.test_getAll_returnsEmployess.executor": "Run",
     "JUnit.EmployeeControllerTest.test_getById_otherexception_internalerrorhappens.executor": "Coverage",
+    "JUnit.EmployeeServiceTest.executor": "Run",
     "JUnit.EmployeeServiceTest.test_getById_Not_exist.executor": "Run",
     "JUnit.EmployeeServiceTest.test_getById_exists.executor": "Run",
     "JUnit.PersonControllerTest.executor": "Run",
@@ -87,13 +88,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.jac.webservice.adapter" />
+      <recent name="com.jac.webservice.service" />
+      <recent name="com.jac.webservice.dto" />
       <recent name="com.jac.webservice.repository.employee" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.jac.webservice.adapter.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmployeeServiceTest">
+  <component name="RunManager" selected="Application.WebserviceApplication">
     <configuration name="WebserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jac.webservice.WebserviceApplication" />
       <module name="webservice" />
@@ -164,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WebserviceApplication" />
         <item itemvalue="JUnit.EmployeeServiceTest" />
         <item itemvalue="JUnit.EmployeeServiceTest.test_getById_exists" />
         <item itemvalue="JUnit.java in webservice" />
         <item itemvalue="JUnit.EmployeeControllerTest.test_getAll_returnsEmployess" />
-        <item itemvalue="Application.WebserviceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +242,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/service/EmployeeService.java</url>
-          <line>35</line>
+          <line>48</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
