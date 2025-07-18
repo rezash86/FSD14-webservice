@@ -1,4 +1,4 @@
-package com.jac.webservice.dto;
+package com.jac.webservice.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

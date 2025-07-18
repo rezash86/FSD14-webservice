@@ -1,13 +1,9 @@
 package com.jac.webservice.adapter;
 
-import com.jac.webservice.adapter.model.Breed;
-import com.jac.webservice.adapter.model.DogApiDto;
-import com.jac.webservice.adapter.model.DogImageDto;
+import com.jac.webservice.adapter.dto.DogApiDto;
+import com.jac.webservice.adapter.dto.DogImageDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 

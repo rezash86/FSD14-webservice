@@ -1,13 +1,12 @@
 package com.jac.webservice.controller;
 
-import com.jac.webservice.dto.Animal;
+import com.jac.webservice.controller.dto.Animal;
 import com.jac.webservice.service.AnimalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 

@@ -1,6 +1,6 @@
 package com.jac.webservice.mapper;
 
-import com.jac.webservice.adapter.model.CatApiDto;
+import com.jac.webservice.adapter.dto.CatApiDto;
 import com.jac.webservice.model.Cat;
 import org.springframework.stereotype.Component;
 

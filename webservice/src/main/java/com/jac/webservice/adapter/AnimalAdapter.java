@@ -1,6 +1,6 @@
 package com.jac.webservice.adapter;
 
-import com.jac.webservice.dto.Animal;
+import com.jac.webservice.controller.dto.Animal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

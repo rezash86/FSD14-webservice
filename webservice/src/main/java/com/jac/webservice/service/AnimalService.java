@@ -1,7 +1,7 @@
 package com.jac.webservice.service;
 
 import com.jac.webservice.adapter.AnimalAdapter;
-import com.jac.webservice.dto.Animal;
+import com.jac.webservice.controller.dto.Animal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;

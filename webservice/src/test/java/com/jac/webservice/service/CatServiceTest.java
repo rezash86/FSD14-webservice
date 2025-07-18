@@ -2,7 +2,7 @@ package com.jac.webservice.service;
 
 import com.jac.webservice.mapper.CatMapper;
 import com.jac.webservice.adapter.CatsApi;
-import com.jac.webservice.adapter.model.CatApiDto;
+import com.jac.webservice.adapter.dto.CatApiDto;
 import com.jac.webservice.model.Cat;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

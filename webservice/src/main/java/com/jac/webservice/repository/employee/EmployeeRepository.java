@@ -1,8 +1,9 @@
 package com.jac.webservice.repository.employee;
 
-import com.jac.webservice.dto.Address;
+import com.jac.webservice.controller.dto.AddressDto;
 import com.jac.webservice.exception.DatabaseException;
 import com.jac.webservice.mapper.EmployeeMapper;
+import com.jac.webservice.model.Address;
 import com.jac.webservice.model.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;

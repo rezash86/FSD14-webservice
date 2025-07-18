@@ -1,6 +1,6 @@
 package com.jac.webservice.repository.person;
 
-import com.jac.webservice.dto.Person;
+import com.jac.webservice.controller.dto.Person;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

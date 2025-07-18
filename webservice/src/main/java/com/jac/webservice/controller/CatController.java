@@ -1,7 +1,6 @@
 package com.jac.webservice.controller;
 
-import com.jac.webservice.dto.CatDto;
-import com.jac.webservice.model.Cat;
+import com.jac.webservice.controller.dto.CatDto;
 import com.jac.webservice.service.CatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,8 @@
 package com.jac.webservice.mapper;
 
-import com.jac.webservice.dto.Address;
-import com.jac.webservice.dto.EmployeeDto;
+import com.jac.webservice.controller.dto.AddressDto;
+import com.jac.webservice.controller.dto.EmployeeDto;
+import com.jac.webservice.model.Address;
 import com.jac.webservice.model.Employee;
 import com.jac.webservice.repository.employee.EmployeeDao;
 import org.springframework.stereotype.Component;
@@ -23,7 +24,7 @@ public class EmployeeMapper {
         return EmployeeDto.builder()
                 .employeeNumber(String.valueOf(employee.getEmployeeId()))
                 .name(employee.getName())
-                .address(Address.builder()
+                .address(AddressDto.builder()
                         .postalCode(employee.getAddress().getPostalCode())
                         .city(employee.getAddress().getCity()).build())
                 .build();

@@ -1,4 +1,4 @@
-package com.jac.webservice.dto;
+package com.jac.webservice.controller.dto;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Builder
 @ToString
-public class Address{
+public class AddressDto {
     private String city;
     private String postalCode;
 }

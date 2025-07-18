@@ -1,6 +1,6 @@
 package com.jac.webservice.service;
 
-import com.jac.webservice.dto.Person;
+import com.jac.webservice.controller.dto.Person;
 import com.jac.webservice.exception.PersonNotFoundException;
 import com.jac.webservice.repository.person.PersonRepository;
 import jakarta.annotation.PostConstruct;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toCollection;

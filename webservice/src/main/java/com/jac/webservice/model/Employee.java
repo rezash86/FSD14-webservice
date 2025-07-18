@@ -1,6 +1,6 @@
 package com.jac.webservice.model;
 
-import com.jac.webservice.dto.Address;
+import com.jac.webservice.controller.dto.AddressDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

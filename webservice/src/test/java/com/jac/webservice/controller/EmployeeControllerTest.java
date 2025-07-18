@@ -1,9 +1,10 @@
 package com.jac.webservice.controller;
 
-import com.jac.webservice.dto.Address;
-import com.jac.webservice.dto.EmployeeDto;
+import com.jac.webservice.controller.dto.AddressDto;
+import com.jac.webservice.controller.dto.EmployeeDto;
 import com.jac.webservice.exception.EmployeeNotFoundException;
 import com.jac.webservice.mapper.EmployeeMapper;
+import com.jac.webservice.model.Address;
 import com.jac.webservice.model.Employee;
 import com.jac.webservice.service.EmployeeService;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toCollection;

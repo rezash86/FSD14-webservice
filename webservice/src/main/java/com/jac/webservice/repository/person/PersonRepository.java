@@ -1,16 +1,13 @@
 package com.jac.webservice.repository.person;
 
 
-import com.jac.webservice.dto.Person;
+import com.jac.webservice.controller.dto.Person;
 import com.jac.webservice.exception.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
-import java.util.zip.DataFormatException;
 
 //@Component
 @Repository

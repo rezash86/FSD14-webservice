@@ -1,7 +1,7 @@
 package com.jac.webservice.adapter;
 
-import com.jac.webservice.adapter.model.Breed;
-import com.jac.webservice.adapter.model.CatApiDto;
+import com.jac.webservice.adapter.dto.Breed;
+import com.jac.webservice.adapter.dto.CatApiDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;

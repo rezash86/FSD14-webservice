@@ -1,7 +1,7 @@
 package com.jac.webservice.controller;
 
 
-import com.jac.webservice.dto.Person;
+import com.jac.webservice.controller.dto.Person;
 import com.jac.webservice.service.PersonService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

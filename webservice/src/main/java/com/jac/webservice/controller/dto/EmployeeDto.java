@@ -1,4 +1,4 @@
-package com.jac.webservice.dto;
+package com.jac.webservice.controller.dto;
 import lombok.*;
 
 @AllArgsConstructor
@@ -11,5 +11,5 @@ import lombok.*;
 public class EmployeeDto {
     private String employeeNumber;
     private String name;
-    private Address address;
+    private AddressDto address;
 }

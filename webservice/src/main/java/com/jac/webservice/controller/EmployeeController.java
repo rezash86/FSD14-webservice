@@ -1,7 +1,6 @@
 package com.jac.webservice.controller;
 
-import com.jac.webservice.dto.Address;
-import com.jac.webservice.dto.EmployeeDto;
+import com.jac.webservice.controller.dto.EmployeeDto;
 import com.jac.webservice.exception.EmployeeNotFoundException;
 import com.jac.webservice.mapper.EmployeeMapper;
 import com.jac.webservice.model.Employee;
