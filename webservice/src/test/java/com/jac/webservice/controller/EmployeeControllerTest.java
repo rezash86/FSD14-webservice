@@ -3,6 +3,7 @@ package com.jac.webservice.controller;
 import com.jac.webservice.dto.Address;
 import com.jac.webservice.dto.EmployeeDto;
 import com.jac.webservice.exception.EmployeeNotFoundException;
+import com.jac.webservice.mapper.EmployeeMapper;
 import com.jac.webservice.model.Employee;
 import com.jac.webservice.service.EmployeeService;
 import org.junit.jupiter.api.Test;
@@ -12,11 +13,14 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toCollection;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpStatus.*;
 
@@ -28,6 +32,9 @@ class EmployeeControllerTest {
 
     @Mock
     private EmployeeService service;
+
+    @Mock
+    private EmployeeMapper mapper;
 
     ArrayList<Employee> employeeList = Stream.of(
             new Employee("1", "A",
@@ -41,14 +48,22 @@ class EmployeeControllerTest {
     @Test
     void test_getAll_returnsEmployess(){
 
+        EmployeeDto employeeDto1 = mock(EmployeeDto.class);
+        EmployeeDto employeeDto2 = mock(EmployeeDto.class);
+        EmployeeDto employeeDto3 = mock(EmployeeDto.class);
+
         //expectation
         when(service.getAll()).thenReturn(employeeList);
+        when(mapper.convertEmployeeToEmployeeDto(employeeList.get(0))).thenReturn(employeeDto1);
+        when(mapper.convertEmployeeToEmployeeDto(employeeList.get(1))).thenReturn(employeeDto2);
+        when(mapper.convertEmployeeToEmployeeDto(employeeList.get(2))).thenReturn(employeeDto3);
+
         var actual = underTest.getAll();
 
         //assert
         assertNotNull(actual.getBody());
         assertEquals(employeeList.size(), actual.getBody().size());
-        assertEquals(employeeList.getFirst().getEmployeeId(), actual.getBody().getFirst().getEmployeeNumber());
+        assertEquals(employeeDto1.getEmployeeNumber(), actual.getBody().getFirst().getEmployeeNumber());
 
         assertEquals(OK, actual.getStatusCode());
     }

@@ -60,6 +60,7 @@
     "Application.Test (1).executor": "Run",
     "Application.Test.executor": "Run",
     "Application.WebserviceApplication.executor": "Run",
+    "JUnit.All in webservice.executor": "Run",
     "JUnit.CatServiceTest.executor": "Run",
     "JUnit.CatServiceTest.test_getCatsByBreeds_returnsCat.executor": "Debug",
     "JUnit.EmployeeControllerTest.executor": "Coverage",
@@ -97,7 +98,7 @@
       <recent name="com.jac.webservice.adapter.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WebserviceApplication">
+  <component name="RunManager" selected="JUnit.java in webservice">
     <configuration name="WebserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jac.webservice.WebserviceApplication" />
       <module name="webservice" />
@@ -107,6 +108,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in webservice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webservice" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,6 +132,7 @@
       <option name="MAIN_CLASS_NAME" value="com.jac.webservice.controller.EmployeeControllerTest" />
       <option name="METHOD_NAME" value="test_getAll_returnsEmployess" />
       <option name="TEST_OBJECT" value="method" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,22 +152,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeServiceTest.test_getById_exists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webservice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jac.webservice.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.jac.webservice.service" />
-      <option name="MAIN_CLASS_NAME" value="com.jac.webservice.service.EmployeeServiceTest" />
-      <option name="METHOD_NAME" value="test_getById_exists" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="java in webservice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webservice" />
       <option name="TEST_OBJECT" value="directory" />
@@ -168,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WebserviceApplication" />
-        <item itemvalue="JUnit.EmployeeServiceTest" />
-        <item itemvalue="JUnit.EmployeeServiceTest.test_getById_exists" />
         <item itemvalue="JUnit.java in webservice" />
+        <item itemvalue="JUnit.EmployeeServiceTest" />
         <item itemvalue="JUnit.EmployeeControllerTest.test_getAll_returnsEmployess" />
+        <item itemvalue="JUnit.All in webservice" />
+        <item itemvalue="Application.WebserviceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +241,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/jac/webservice/controller/EmployeeControllerTest.java</url>
-          <line>49</line>
+          <line>64</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -284,6 +278,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/service/EmployeeService.java</url>
           <line>28</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/controller/EmployeeController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/mapper/EmployeeMapper.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
