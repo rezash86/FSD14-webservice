@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding Employee</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input[type="text"] {
+        padding: 4px;
+        width: 300px;
+      }
+      button {
+        margin-top: 15px;
+        padding: 7px 18px;
+      }
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Save Employee</h2>
+    <form id="employeeForm">
+      <label>Name: <input type="text" id="name" name="name" required /></label>
+      <label>City: <input type="text" id="city" name="city" required /></label>
+      <label
+        >PostalCode:
+        <input type="text" id="postalCode" name="postalCode" required
+      /></label>
+      <button id="btnSubmit" type="submit">Save Employee</button>
+    </form>
+    <div id="result"></div>
+  </body>
+  <script src="script.js"></script>
+</html>

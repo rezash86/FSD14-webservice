@@ -59,7 +59,7 @@
   "keyToString": {
     "Application.Test (1).executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.WebserviceApplication.executor": "Run",
+    "Application.WebserviceApplication.executor": "Debug",
     "JUnit.All in webservice.executor": "Run",
     "JUnit.CatServiceTest.executor": "Run",
     "JUnit.CatServiceTest.test_getCatsByBreeds_returnsCat.executor": "Debug",
@@ -98,7 +98,7 @@
       <recent name="com.jac.webservice.adapter.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in webservice">
+  <component name="RunManager" selected="Application.WebserviceApplication">
     <configuration name="WebserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jac.webservice.WebserviceApplication" />
       <module name="webservice" />
@@ -162,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WebserviceApplication" />
         <item itemvalue="JUnit.java in webservice" />
         <item itemvalue="JUnit.EmployeeServiceTest" />
         <item itemvalue="JUnit.EmployeeControllerTest.test_getAll_returnsEmployess" />
         <item itemvalue="JUnit.All in webservice" />
-        <item itemvalue="Application.WebserviceApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +271,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/controller/EmployeeController.java</url>
-          <line>38</line>
+          <line>39</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -280,14 +280,14 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/controller/EmployeeController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/mapper/EmployeeMapper.java</url>
           <line>22</line>
           <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jac/webservice/controller/EmployeeController.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

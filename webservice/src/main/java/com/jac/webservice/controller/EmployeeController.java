@@ -18,6 +18,7 @@ import static org.springframework.http.HttpStatus.*;
 @RestController
 @RequestMapping("/api/employee")
 @RequiredArgsConstructor
+@CrossOrigin
 public class EmployeeController {
 
     private final EmployeeService service;
